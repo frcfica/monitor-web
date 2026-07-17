@@ -13,7 +13,7 @@ jobs:
     steps:
     # Paso 1: El robot descarga una copia de nuestro repositorio
     - name: Descargar codigo del repositorio
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # Paso 2: El robot prueba construir nuestra imagen de Docker
     - name: Probar construccion de la imagen Docker
