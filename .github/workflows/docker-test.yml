@@ -1,0 +1,21 @@
+name: Validar Dockerfile
+
+# El robot se activará cada vez que hagamos un 'push' (subir cambios) a la rama main
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # Le decimos al robot que use una máquina virtual con Linux Ubuntu de GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+    # Paso 1: El robot descarga una copia de nuestro repositorio
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v3
+
+    # Paso 2: El robot prueba construir nuestra imagen de Docker
+    - name: Probar construccion de la imagen Docker
+      run: |
+        docker build -t mi-primer-monitor-test .
